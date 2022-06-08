@@ -39,7 +39,7 @@
 
     gfxmodeEfi = "1920x1280";
     #    theme = pkgs.grub2-themes-virtuaverse;
-    #splashImage = pkgs.nixos-artwork.wallpapers.stripes-logo.gnomeFilePath;
+    splashImage = pkgs.nixos-artwork.wallpapers.stripes-logo.gnomeFilePath;
     backgroundColor = "#292A36";
   };
 
