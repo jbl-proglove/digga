@@ -32,6 +32,7 @@ in
       skim
       tealdeer
       whois
+      vim
     ];
 
     # Starship is a fast and featureful shell prompt
