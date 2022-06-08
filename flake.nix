@@ -119,6 +119,7 @@
           hosts = {
             /* set host-specific properties here */
             NixOS = { };
+            manara = { };
           };
           importables = rec {
             profiles = digga.lib.rakeLeaves ./profiles // {
