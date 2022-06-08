@@ -16,16 +16,20 @@ in
       # TODO: must come from unstable channel
       # alejandra
       binutils
+      choose
       coreutils
       curl
       direnv
       dnsutils
       fd
       git
+      gotop
       bottom
       jq
+      killall
       manix
       moreutils
+      neofetch
       nix-index
       nmap
       ripgrep
@@ -33,6 +37,8 @@ in
       tealdeer
       whois
       vim
+      yj
+      yq
     ];
 
     # Starship is a fast and featureful shell prompt
@@ -81,7 +87,7 @@ in
         mn = ''
           manix "" | grep '^# ' | sed 's/^# \(.*\) (.*/\1/;s/ (.*//;s/^# //' | sk --preview="manix '{}'" | xargs manix
         '';
-        top = "btm";
+        top = "gotop";
 
         # sudo
         s = ifSudo "sudo -E ";

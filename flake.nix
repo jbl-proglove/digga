@@ -127,6 +127,7 @@
             };
             suites = with profiles; rec {
               base = [ core.nixos users.nixos users.root users.jbl ];
+              # base = [ core.nixos users.nixos users.root ];
               # FIXME setup suites
               # base suite
               #base = [ core users.jbl users.root ];
@@ -178,8 +179,11 @@
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               #base = [ direnv git ];
-              base = [ direnv git alacritty bat xdg ];
+              #base = [ direnv git alacritty bat xdg ];
+              base = [ direnv git alacritty bat ];
               # FIXME setup coding user suite
+              # coding = base ++ [ neovim xdg ];
+              coding = base ++ [ neovim ];
               #coding = base ++ [ vscode-with-extensions ];
             };
           };
@@ -201,6 +205,7 @@
             # first steps in customizing the template.
             nixos = { suites, ... }: { imports = suites.base; };
             darwin = { suites, ... }: { imports = suites.base; };
+            jbl = { suites, ... }: { imports = suites.coding; };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
         };
 

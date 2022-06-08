@@ -2,3 +2,7 @@
 [manix]
 src.git = "https://github.com/mlvzk/manix"
 fetch.github = "mlvzk/manix"
+[picom]
+src.manual = "44b4970f70d6b23759a61a2b94d9bfb4351b41b1"
+fetch.github = "ibhagwan/picom"
+#fetch.github = "https://github.com/ibhagwan/picom/44b4970f70d6b23759a61a2b94d9bfb4351b41b1"
