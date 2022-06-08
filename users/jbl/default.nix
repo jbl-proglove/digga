@@ -24,6 +24,7 @@ in
   home-manager.users.jbl = { suites, ... }: {
     # FIXME implement
     #    imports = suites.coding;
+    # QUESTION is this needed, since it's declared in user base suite in flake.nix?
     xdg.enable = true;
     home.sessionVariables = {
       XDG_CACHE_HOME = "$HOME/.cache";

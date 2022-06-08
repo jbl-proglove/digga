@@ -126,7 +126,19 @@
               users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
-              base = [ core.nixos users.nixos users.root ];
+              base = [ core.nixos users.nixos users.root users.jbl ];
+              # FIXME setup suites
+              # base suite
+              #base = [ core users.jbl users.root ];
+
+              # basic suite with a graphical frontend and a base setup
+              #workstation = base ++ [ develop graphical ];
+
+              # suite for my work laptop. Most notable is the single-user and more security
+              #progloveLaptop = workstation ++ [ laptop proglove tailscale ]; # todo add proglove related stuff
+
+              # suite for a private laptop. More fun, less secure, and multi-user.
+              #privateLaptop = workstation ++ [ laptop users.noah ];
             };
           };
         };
@@ -165,7 +177,10 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
-              base = [ direnv git ];
+              #base = [ direnv git ];
+              base = [ direnv git alacritty bat xdg ];
+              # FIXME setup coding user suite
+              #coding = base ++ [ vscode-with-extensions ];
             };
           };
           users = {
