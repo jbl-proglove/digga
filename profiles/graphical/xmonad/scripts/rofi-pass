@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+#
+export GOPASS_DEBUG=true
+export GOPASS_DEBUG_LOG=/home/jbl/log
+echo $GPG_TTY > /home/jbl/log2
+BLA=$(gopass ls --flat | rofi -dmenu -p gopass) && gopass show -c "${BLA}"
+

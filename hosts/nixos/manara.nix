@@ -1,7 +1,8 @@
-{ suites, config, lib, pkgs, ... }:
+{ suites, profiles, hardware, config, lib, pkgs, ... }:
 
 {
-  imports = suites.base;
+  #imports = suites.progloveLaptop ++ [ hardware.dell-latitude-3480 ];
+  imports = suites.workstation ++ [ profiles.laptop profiles.proglove ];
 
   # Setup networking
   networking.networkmanager.enable = true;
