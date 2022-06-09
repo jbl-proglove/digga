@@ -126,6 +126,7 @@
               users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
+              #base = [ core.nixos users.nixos users.root users.jbl neovim ];
               base = [ core.nixos users.nixos users.root users.jbl ];
               # base = [ core.nixos users.nixos users.root ];
               # FIXME setup suites

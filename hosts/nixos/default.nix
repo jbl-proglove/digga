@@ -5,5 +5,5 @@
   ] ++ suites.base;
 
   bud.enable = true;
-  bud.localFlakeClone = "/root/digga";
+  bud.localFlakeClone = "/home/jbl/digga";
 }
