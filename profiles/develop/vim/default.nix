@@ -10,6 +10,7 @@
         packages.myplugins = with pkgs.vimPlugins; {
           start = [
             vim-nix
+            nvim-jqx
             vim-lastplace
             # see and learn https://github.com/jiangmiao/auto-pairs
             auto-pairs

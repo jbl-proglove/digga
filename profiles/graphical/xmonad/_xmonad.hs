@@ -59,18 +59,18 @@ myFont = "xft:FuraCode Nerd Font:size=14:regular:antialias=true"
 -- TreeSelect workspaces
 myWorkspaces :: Forest String
 myWorkspaces = [ Node "dev"
-                  [ Node "terminal" []
-                  , Node "docs" []
+                  [ Node "trm" []
+                  , Node "doc" []
                   , Node "files" []
-                  , Node "programming" [
-                      Node "python" []
-                    , Node "shell" []
+                  , Node "prg" [
+                      Node "py" []
+                    , Node "sh" []
                     ]
                   ]
               , Node "web"
-                  [ Node "browser" []
-                  , Node "chat" []
-                  , Node "email" []
+                  [ Node "brws" []
+                  , Node "im" []
+                  , Node "mail" []
                   , Node "rss" []
                   , Node "web conference" []
                   ]

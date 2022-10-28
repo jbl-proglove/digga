@@ -23,8 +23,10 @@ dzen2_dpms_state () {
   local -r \
     new_dpms_state=$1
 
-  print "Power Management ${new_dpms_state}" \
-    | dzen2 -fn "monospace" -p 2 -tw ${WIDTH} -x ${XPOS} -y ${YPOS}
+  /run/current-system/sw/bin/notify-send -u INFO -a xmonad "Power Management ${new_dpms_state}"
+#  print "Power Management ${new_dpms_state}" \
+#    notify-send``
+#    | dzen2 -fn "monospace" -p 2 -tw ${WIDTH} -x ${XPOS} -y ${YPOS}
 }
 
   case $dpms_state in

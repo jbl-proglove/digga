@@ -8,7 +8,7 @@
   inputs =
     {
       # Track channels with commits tested and built by hydra
-      nixos.url = "github:nixos/nixpkgs/nixos-21.11";
+      nixos.url = "github:nixos/nixpkgs/nixos-22.05";
       latest.url = "github:nixos/nixpkgs/nixos-unstable";
       # For darwin hosts: it can be helpful to track this darwin-specific stable
       # channel equivalent to the `nixos-*` channels for NixOS. For one, these
@@ -134,7 +134,7 @@
               #base = [ core users.jbl users.root ];
 
               # basic suite with a graphical frontend and a base setup
-              workstation = base ++ [ develop graphical ];
+              workstation = base ++ [ develop graphical ssh ];
 
               # suite for my work laptop. Most notable is the single-user and more security
               progloveLaptop = workstation ++ [ laptop proglove tailscale ]; # todo add proglove related stuff
@@ -184,7 +184,7 @@
               base = [ direnv git alacritty bat ];
               # FIXME setup coding user suite
               # coding = base ++ [ neovim xdg ];
-              coding = base ++ [ neovim ];
+              coding = base ++ [ neovim xdg ];
               #coding = base ++ [ vscode-with-extensions ];
             };
           };
@@ -206,7 +206,7 @@
             # first steps in customizing the template.
             nixos = { suites, ... }: { imports = suites.base; };
             darwin = { suites, ... }: { imports = suites.base; };
-            jbl = { suites, ... }: { imports = suites.coding; };
+            #            jbl = { suites, ... }: { imports = suites.coding; };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
         };
 

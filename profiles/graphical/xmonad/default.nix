@@ -68,11 +68,14 @@
     opacityRules = [
       "100:name *= 'Microsoft Teams'"
       "100:name *= 'Google Chrome'"
+      "100:name *= 'Spotify'"
+      "100:name *?= 'slock'"
       "100:class_g = 'qutebrowser'"
       "100:class_g *= 'google-chrome'"
-      "100:class_g *= 'Firefox'"
+      "100:class_g *= 'firefox'"
       "100:class_g = 'zoom'"
       "100:class_g = 'Rofi'"
+      "100:class_g = 'slock'"
       "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
     ];
 
@@ -83,7 +86,7 @@
     # `normal` way ie without home-manager.
     settings = {
       unredir-if-possible = true;
-      focus-exclude = "name = 'slock'";
+      focus-exclude = "class_g = 'slock'";
       blur = {
         method = "dual_kawase";
         strength = 6;

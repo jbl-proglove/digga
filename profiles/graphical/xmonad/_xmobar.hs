@@ -1,9 +1,9 @@
 Config { position = Top
         , font     = "xft:FuraCode Nerd Font:size=14:bold:antialias=true"
---        , fgColor = "#6d6e7a"
-        , fgColor = "#2e3440"
---        , bgColor = "#282a36"
-        , bgColor = "#d8dee9"
+        , fgColor = "#6d6e7a"
+--        , fgColor = "#2e3440"
+        , bgColor = "#282a36"
+--        , bgColor = "#d8dee9"
         , lowerOnStart = False
 --        , bgColor = "#dadbd7"
 --        , border = BottomB
@@ -14,11 +14,13 @@ Config { position = Top
         , alignSep = "}{"
         , allDesktops = True
 --        , template = "  <fc=#ff0000></fc>  | %StdinReader% } %time% { %battery% |  %cpu% |  %memory% |   %disku% | 直 %wlp2s0wi%  %enp0s31f6% |  %alsa:HDA Intel PCH:Master% ﱘ %alsa:AudioQuest DragonFly Cobalt v1.:PCM% |  %kbd%  <fc=#fffa4c>%date%</fc>         "
-        , template = " <fc=#eeeeee></fc><fc=#ff2233></fc><fc=#7ebae4></fc> %StdinReader% } %time% { %battery% <fc=#7ebae4>|</fc> <fc=#ecbe7b> %cpu%</fc> <fc=#7ebae4>|</fc> <fc=#ff6c6b> %memory%</fc> <fc=#7ebae4>|</fc> <fc=#51afef> %disku%</fc> <fc=#7ebae4>|</fc> <fc=#98be65>直 %wlp2s0wi%  %enp0s31f6%</fc> | <fc=#c678dd>%default:Master%</fc> <fc=#7ebae4>|</fc> <fc=#c678dd> %kbd%</fc>    <fc=#46d9ff>%date%</fc> "
+        , template = " <fc=#eeeeee></fc><fc=#ff2233></fc><fc=#7ebae4></fc> %StdinReader% } %time% { %battery%<fc=#7ebae4></fc> <fc=#ecbe7b> %cpu%</fc> <fc=#ff6c6b> %memory%</fc> <fc=#51afef> %disku%</fc> <fc=#98be65>直 %wlp2s0wi%  %enp0s31f6%</fc> <fc=#c678dd>%default:Master%</fc> <fc=#c678dd> %kbd%</fc>    <fc=#46d9ff>%date%</fc> "
+        --, template = " <fc=#eeeeee></fc><fc=#ff2233></fc><fc=#7ebae4></fc> %StdinReader% } %time% { %battery% <fc=#7ebae4>|</fc> <fc=#ecbe7b> %cpu%</fc> <fc=#7ebae4>|</fc> <fc=#ff6c6b> %memory%</fc> <fc=#7ebae4>|</fc> <fc=#51afef> %disku%</fc> <fc=#7ebae4>|</fc> <fc=#98be65>直 %wlp2s0wi%  %enp0s31f6%</fc> | <fc=#c678dd>%default:Master%</fc> <fc=#7ebae4>|</fc> <fc=#c678dd> %kbd%</fc>    <fc=#46d9ff>%date%</fc> "
         , commands = [ Run StdinReader
                       -- Date formatting
                     , Run Date "%_H:%M<fc=#aaaaaa> %S</fc>" "time" 10 -- every 1s
-                    , Run Date "%a %_d.%b" "date" 100 -- every 10s
+                    , Run Date "%u %_d.%b" "date" 100 -- every 10s
+                    --, Run Date "%a %_d.%b" "date" 100 -- every 10s
                     -- CPU core temperature
                     , Run CoreTemp [ "--template" , "<core0>/<core1>°C"
                                     , "--Low"      , "70"

@@ -28,23 +28,25 @@
         user = "jbl";
         extraConfig = ''
           [greeter]
-          show-password-label = false
-          invalid-password-text = Nope
-          show-input-cursor = true
-          password-alignment = center
+          invalid-password-text = Thou shalt not pass
           show-image-on-all-monitors = true
+          show-input-cursor = true
+          show-password-label = false
+          show-sys-info = true
+          password-alignment = center
           [greeter-theme]
-          text-color = "#FFD119"
-          password-character = x
-          error-color = "#F07178"
+          background-image = "/etc/wallpapers/nix-wallpaper-simple-blue.png"
+          background-image-size = "cover"
           border-color = "#FFFFFF"
-          window-color = "#202952"
-          password-color = "#FFD119"
+          border-width = 1px
+          error-color = "#F07178"
           password-background-color = "#202952
           password-border-color = "#202331"
           password-border-width = 0px
-          border-width = 1px
-          background-image = "/etc/wallpapers/nix-wallpaper-simple-blue.png"
+          password-character = 💀
+          password-color = "#FFD119"
+          text-color = "#FFD119"
+          window-color = "#202952"
         '';
       };
     };

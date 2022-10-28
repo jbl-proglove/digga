@@ -1,41 +1,60 @@
 {
-    "picom": {
-        "cargoLocks": null,
-        "pinned": false,
-        "name": "picom",
-        "version": "44b4970f70d6b23759a61a2b94d9bfb4351b41b1",
-        "passthru": null,
-        "src": {
-            "deepClone": false,
-            "leaveDotGit": false,
-            "owner": "ibhagwan",
-            "fetchSubmodules": false,
-            "name": null,
-            "repo": "picom",
-            "type": "github",
-            "sha256": "0iff4bwpc00xbjad0m000midslgx12aihs33mdvfckr75r114ylh",
-            "rev": "44b4970f70d6b23759a61a2b94d9bfb4351b41b1"
-        },
-        "extract": null
-    },
     "manix": {
         "cargoLocks": null,
-        "pinned": false,
+        "extract": null,
         "name": "manix",
-        "version": "d08e7ca185445b929f097f8bfb1243a8ef3e10e4",
         "passthru": null,
+        "pinned": false,
         "src": {
             "deepClone": false,
-            "leaveDotGit": false,
-            "owner": "mlvzk",
             "fetchSubmodules": false,
+            "leaveDotGit": false,
             "name": null,
+            "owner": "mlvzk",
             "repo": "manix",
-            "type": "github",
-            "sha256": "1b7xi8c2drbwzfz70czddc4j33s7g1alirv12dwl91hbqxifx8qs",
-            "rev": "d08e7ca185445b929f097f8bfb1243a8ef3e10e4"
+            "rev": "d08e7ca185445b929f097f8bfb1243a8ef3e10e4",
+            "sha256": "sha256-GqPuYscLhkR5E2HnSFV4R48hCWvtM3C++3zlJhiK/aw=",
+            "type": "github"
         },
-        "extract": null
+        "version": "d08e7ca185445b929f097f8bfb1243a8ef3e10e4"
+    },
+    "pam_usb": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "pam_usb",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mcdope",
+            "repo": "pam_usb",
+            "rev": "27ff04ca2f56d36efce1eaa757ba77d77e18e090",
+            "sha256": "sha256-PquK7IO29IfILpG6OE6lr6Yj9YmJOatjhXgytBH9RKk=",
+            "type": "github"
+        },
+        "version": "27ff04ca2f56d36efce1eaa757ba77d77e18e090"
+    },
+    "picom": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "picom",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ibhagwan",
+            "repo": "picom",
+            "rev": "44b4970f70d6b23759a61a2b94d9bfb4351b41b1",
+            "sha256": "sha256-kHoSQi4nT+Z2q2NoGJUI/VHdYgUAVNCUXB0AdvkizkU=",
+            "type": "github"
+        },
+        "version": "44b4970f70d6b23759a61a2b94d9bfb4351b41b1"
     }
 }
 

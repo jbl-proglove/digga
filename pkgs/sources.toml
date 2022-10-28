@@ -2,7 +2,18 @@
 [manix]
 src.git = "https://github.com/mlvzk/manix"
 fetch.github = "mlvzk/manix"
+[minion]
+src.git = "https://github.com/jbl-proglove/minion"
+fetch.github = "jbl-proglove/minion"
 [picom]
 src.manual = "44b4970f70d6b23759a61a2b94d9bfb4351b41b1"
 fetch.github = "ibhagwan/picom"
 #fetch.github = "https://github.com/ibhagwan/picom/44b4970f70d6b23759a61a2b94d9bfb4351b41b1"
+[pam_usb]
+src.git = "https://github.com/mcdope/pam_usb"
+fetch.github = "mcdope/pam_usb"
+#[granted]
+#src.git = "https://github.com/common-fate/granted"
+#fetch.tarball = "https://releases.commonfate.io/granted/v0.2.0/granted_0.2.0_linux_x86_64.tar.gz"
+#extract = [ "assume", "granted" ]
+##fetch.github = "common-fate/granted"

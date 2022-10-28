@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   # TODO verify
   #imports = [ ./zsh ./vim ./kakoune ./tmux ./gnupg ];
@@ -15,7 +15,7 @@
   environment = {
     shellAliases = {
       v = "$EDITOR";
-      pass = "gopass";
+      #pass = "gopass";
       # FIXME this should be sth like an alias for running a different
       # command with the last parameter of the previous command
       vv = "v !!$";

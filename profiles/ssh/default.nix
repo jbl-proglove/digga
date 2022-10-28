@@ -1,7 +1,7 @@
 { ... }: {
   services.openssh = {
     enable = true;
-    challengeResponseAuthentication = false;
+    kbdInteractiveAuthentication = false;
     passwordAuthentication = true; # TODO set to false, once keys are there
     forwardX11 = true;
     permitRootLogin = "no";

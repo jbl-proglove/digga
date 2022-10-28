@@ -9,7 +9,18 @@
       repo = "manix";
       rev = "d08e7ca185445b929f097f8bfb1243a8ef3e10e4";
       fetchSubmodules = false;
-      sha256 = "1b7xi8c2drbwzfz70czddc4j33s7g1alirv12dwl91hbqxifx8qs";
+      sha256 = "sha256-GqPuYscLhkR5E2HnSFV4R48hCWvtM3C++3zlJhiK/aw=";
+    });
+  };
+  pam_usb = {
+    pname = "pam_usb";
+    version = "27ff04ca2f56d36efce1eaa757ba77d77e18e090";
+    src = fetchFromGitHub ({
+      owner = "mcdope";
+      repo = "pam_usb";
+      rev = "27ff04ca2f56d36efce1eaa757ba77d77e18e090";
+      fetchSubmodules = false;
+      sha256 = "sha256-PquK7IO29IfILpG6OE6lr6Yj9YmJOatjhXgytBH9RKk=";
     });
   };
   picom = {
@@ -20,7 +31,7 @@
       repo = "picom";
       rev = "44b4970f70d6b23759a61a2b94d9bfb4351b41b1";
       fetchSubmodules = false;
-      sha256 = "0iff4bwpc00xbjad0m000midslgx12aihs33mdvfckr75r114ylh";
+      sha256 = "sha256-kHoSQi4nT+Z2q2NoGJUI/VHdYgUAVNCUXB0AdvkizkU=";
     });
   };
 }

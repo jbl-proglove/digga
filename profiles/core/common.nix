@@ -36,6 +36,7 @@ in
       skim
       tealdeer
       whois
+      viddy
       vim
       yj
       yq

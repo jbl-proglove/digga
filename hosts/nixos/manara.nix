@@ -2,7 +2,11 @@
 
 {
   #imports = suites.progloveLaptop ++ [ hardware.dell-latitude-3480 ];
-  imports = suites.workstation ++ [ profiles.laptop profiles.proglove ];
+  imports = suites.workstation ++ [
+    profiles.laptop
+    profiles.proglove
+    profiles.proaudio
+  ];
 
   # Setup networking
   networking.networkmanager.enable = true;
@@ -21,7 +25,8 @@
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "i915" ];
+  boot.blacklistedKernelModules = [ "nouveau" "nvidia" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -41,7 +46,7 @@
     gfxmodeEfi = "1920x1280";
     #    theme = pkgs.grub2-themes-virtuaverse;
     splashImage = pkgs.nixos-artwork.wallpapers.stripes-logo.gnomeFilePath;
-    backgroundColor = "#292A36";
+    backgroundColor = "#292A35";
   };
 
   boot.initrd.luks.devices = {
@@ -88,6 +93,29 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
+  services.dbus.enable = true;
+  #  security.pam.services.sudo.showMotd = true;
+  users.motd = "hellou\n";
+  environment.systemPackages = [ pkgs.pam_usb ];
+  #  environment.systemPackages = [ pkgs.pam_usb pkgs.granted ];
+  environment.variables = {
+    VDPAU_DRIVER = "va_gl";
+  };
+
+  #  services.udisks2.enable = true;
+  security.pam.usb.enable = false;
+  security.pam.services.su.usbAuth = true;
+  security.pam.services.sudo.usbAuth = true;
+  #  security.pam.services.login.usbAuth = true;
+  security.pam.services.sudo.logFailures = true;
+  #  security.pam.services.sudo.text = "# Account management.\naccount required pam_unix.so\n\n# Authentication management.\nauth sufficient ${pkgs.pam_usb}/lib/security/pam_usb.so debug\nauth sufficient pam_unix.so likeauth try_first_pass\nauth required pam_deny.so\n\n# Password management.\npassword sufficient pam_unix.so nullok sha512\n\n# Session management.\nsession required pam_env.so conffile=/etc/pam/environment readenv=0\nsession required pam_unix.so\n";
+
+  environment.etc = {
+    "security/pam_usb.conf".source = ./pam_usb.conf;
+  };
+  #  services.dbus.packages = [ pkgs.udisks1 ];
+  #  services.udev.packages = [ pkgs.udisks1 ];
+  #  systemd.packages = [ pkgs.udisks1 ];
 
 
 
@@ -98,6 +126,22 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  # based on https://nixos.wiki/wiki/Accelerated_Video_Playback
+  #  config.packageOverrides = pkgs: {
+  #    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  #  };
+  services.xserver.videoDrivers = [ "intel" ];
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
   # Enable sound.
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
@@ -106,10 +150,13 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.jane = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  # };
+  users.users.jbl = {
+    hashedPassword = "$6$1aJR8GVSqojUQVM4$x433Q./ToIpvVtzzFFjctZ3RbzqdrjwxN6ibaQNNwL4ZpiC1vhSsEnEz8O7VAvQYZ779h2TceTVIW5wK8Bw1W.";
+    description = "Julius Blank";
+    extraGroups = [ "wheel" "docker" ];
+    isNormalUser = true;
+  };
+  users.mutableUsers = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -144,7 +191,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "22.05"; # Did you read the comment?
 
 }
 
